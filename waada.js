@@ -48,14 +48,14 @@ class Waada {
     }
     then(fn){
         this.resFn = fn
-        this.child = this.child || new waada((res,rej)=>{this.childRes=res;this.childRej=rej},this);
+        this.child = this.child || new Waada((res,rej)=>{this.childRes=res;this.childRej=rej},this);
         this.resolver();
         this.rejector();
         return this.child;
     }
     catch(fn){
         this.rejFn = fn
-        this.child = this.child || new waada((res,rej)=>{this.childRes=res;this.childRej=rej},this);
+        this.child = this.child || new Waada((res,rej)=>{this.childRes=res;this.childRej=rej},this);
         this.resolver();
         this.rejector();
         return this.child;
